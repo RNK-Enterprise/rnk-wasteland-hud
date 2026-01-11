@@ -1,0 +1,46 @@
+<form class="rnk-wasteland-hud-widget-config">
+  <div class="form-group">
+    <label>Actor</label>
+    <select id="rnk-widget-actor" name="actor">
+      {{#each actors}}
+        <option value="{{this.id}}">{{this.name}}</option>
+      {{/each}}
+    </select>
+  </div>
+  <div class="form-group">
+    <label>Title (optional)</label>
+    <input id="rnk-widget-title" type="text" />
+  </div>
+
+  <div class="form-group">
+    <label>Add Attribute</label>
+    <div style="display:flex;gap:8px;align-items:center;">
+      <input id="rnk-attr-label" placeholder="Label (optional)" />
+      <input id="rnk-attr-path" placeholder="data path (e.g. attributes.hp)" />
+      <button id="rnk-add-attr" class="btn">Add</button>
+    </div>
+    <div style="margin-top:8px;">
+      <strong>Common:</strong>
+      {{#each common}}
+        <code>{{this.path}}</code> - {{this.label}}<br/>
+      {{/each}}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Placement</label>
+    <div>
+      <button id="rnk-start-place" class="btn">Click on Scene to Place</button>
+      <div style="margin-top:6px;font-size:11px;color:#ddd">Placed position will be relative to the scene top-left.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>Preview</label>
+    <div class="rnk-widget-preview">(Preview updates after placing)</div>
+  </div>
+
+  <div class="form-group sheet-footer">
+    <button id="rnk-save-widget" class="btn btn-primary">Save Widget</button>
+  </div>
+</form>

@@ -1,0 +1,772 @@
+/**
+ * RNK Wasteland HUD - Post-Apocalyptic Theme
+ * Wasteland survivor aesthetic with rust, decay, and toxic green accents
+ */
+
+:root {
+  --toxic-green: #39ff14;
+  --toxic-green-glow: rgba(57, 255, 20, 0.4);
+  --toxic-green-dark: #1a7a0d;
+}
+
+/* Configuration Dialog - Apocalyptic Bunker */
+.rnk-wasteland-hud-config {
+  font-family: 'Roboto Condensed', var(--font-primary), monospace;
+  color: #d4af37;
+  background: linear-gradient(145deg, #1a1410 0%, #0d0b08 100%);
+  border: 3px solid #4a3820;
+  box-shadow: 
+    0 0 30px var(--toxic-green-glow),
+    inset 0 0 60px rgba(0, 0, 0, 0.8),
+    0 8px 32px rgba(0, 0, 0, 0.9),
+    0 0 20px rgba(57, 255, 20, 0.2);
+  position: relative;
+}
+
+/* Rust texture overlay */
+.rnk-wasteland-hud-config::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(74, 56, 32, 0.1) 2px,
+      rgba(74, 56, 32, 0.1) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(74, 56, 32, 0.1) 2px,
+      rgba(74, 56, 32, 0.1) 4px
+    );
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.rnk-wasteland-hud-config .tabs {
+  display: flex;
+  border-bottom: 3px solid var(--toxic-green);
+  margin-bottom: 1rem;
+  gap: 0.25rem;
+  background: linear-gradient(180deg, #2a2015 0%, #1a1410 100%);
+  padding: 0.5rem 0.5rem 0 0.5rem;
+  box-shadow: inset 0 -2px 8px rgba(0, 0, 0, 0.8), 0 2px 10px var(--toxic-green-glow);
+}
+
+.rnk-wasteland-hud-config .tabs .item {
+  padding: 0.75rem 1.25rem;
+  cursor: pointer;
+  border: 2px solid #3a2a15;
+  background: linear-gradient(180deg, #2d2318 0%, #1a1410 100%);
+  color: #8b7355;
+  transition: all 0.3s;
+  border-bottom: none;
+  margin-bottom: -3px;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  position: relative;
+  box-shadow: 
+    inset 0 1px 0 rgba(212, 175, 55, 0.1),
+    2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.rnk-wasteland-hud-config .tabs .item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(212, 175, 55, 0.02) 10px,
+    rgba(212, 175, 55, 0.02) 20px
+  );
+  pointer-events: none;
+}
+
+.rnk-wasteland-hud-config .tabs .item:hover {
+  color: var(--toxic-green);
+  background: linear-gradient(180deg, #3d2d1a 0%, #2a2015 100%);
+  border-color: var(--toxic-green-dark);
+  box-shadow: 
+    inset 0 1px 0 var(--toxic-green-glow),
+    0 0 12px var(--toxic-green-glow),
+    2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.rnk-wasteland-hud-config .tabs .item.active {
+  color: var(--toxic-green);
+  border-color: var(--toxic-green);
+  background: linear-gradient(180deg, #1a2a15 0%, #0d1a0a 100%);
+  box-shadow: 
+    inset 0 2px 8px var(--toxic-green-glow),
+    0 0 20px var(--toxic-green-glow),
+    0 -2px 16px var(--toxic-green-glow);
+  text-shadow: 0 0 8px var(--toxic-green);
+}
+
+.rnk-wasteland-hud-config .tabs .item i {
+  margin-right: 0.6rem;
+  filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.4));
+}
+
+/* Tab Content - Survivor's Terminal */
+.rnk-wasteland-hud-config .content {
+  padding: 1.5rem;
+  max-height: 70vh;
+  overflow-y: auto;
+  background: rgba(10, 8, 5, 0.6);
+  border: 1px solid var(--toxic-green-dark);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8), inset 0 0 10px var(--toxic-green-glow);
+}
+
+.rnk-wasteland-hud-config .tab {
+  display: none;
+}
+
+.rnk-wasteland-hud-config .tab.active {
+  display: block;
+}
+
+/* Form Groups - Wasteland Interface */
+.rnk-wasteland-hud-config .form-group {
+  margin-bottom: 1.5rem;
+  background: rgba(26, 20, 16, 0.6);
+  padding: 1rem;
+  border: 1px solid #3a2a15;
+  border-left: 3px solid var(--toxic-green);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6), -2px 0 8px var(--toxic-green-glow);
+}
+
+.rnk-wasteland-hud-config .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.rnk-wasteland-hud-config label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: #d4af37;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  line-height: 1.4;
+}
+
+.rnk-wasteland-hud-config label.checkbox {
+  display: flex;
+  align-items: center;
+  font-weight: normal;
+  cursor: pointer;
+  color: #b8986a;
+  text-transform: none;
+}
+
+.rnk-wasteland-hud-config label.checkbox input {
+  margin-right: 0.6rem;
+  width: auto;
+  flex-shrink: 0;
+}
+
+/* Inputs - Salvaged Terminal Style */
+.rnk-wasteland-hud-config input[type="text"],
+.rnk-wasteland-hud-config input[type="number"],
+.rnk-wasteland-hud-config textarea,
+.rnk-wasteland-hud-config select {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 2px solid #4a3820;
+  background: linear-gradient(180deg, #0d0b08 0%, #1a1410 100%);
+  color: #d4af37;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+  box-shadow: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.8),
+    inset -1px -1px 2px rgba(212, 175, 55, 0.1);
+  line-height: normal;
+  height: auto;
+  min-height: 38px;
+  vertical-align: middle;
+  box-sizing: border-box;
+}
+
+.rnk-wasteland-hud-config select {
+  padding: 0.5rem 0.8rem;
+  height: auto;
+  line-height: 1.6;
+}
+
+.rnk-wasteland-hud-config input[type="text"]:focus,
+.rnk-wasteland-hud-config input[type="number"]:focus,
+.rnk-wasteland-hud-config textarea:focus,
+.rnk-wasteland-hud-config select:focus {
+  outline: none;
+  border-color: var(--toxic-green);
+  background: #1a1410;
+  box-shadow: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 12px var(--toxic-green-glow),
+    inset 0 0 8px var(--toxic-green-glow);
+  color: var(--toxic-green);
+}
+
+.rnk-wasteland-hud-config textarea {
+  resize: vertical;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  line-height: 1.5;
+}
+
+.rnk-wasteland-hud-config textarea.monospace {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.85rem;
+}
+
+.rnk-wasteland-hud-config input[type="color"] {
+  width: 60px;
+  height: 40px;
+  padding: 4px;
+  border: 1px solid var(--color-border-dark);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.rnk-wasteland-hud-config input[type="range"] {
+  width: calc(100% - 60px);
+  vertical-align: middle;
+}
+
+.rnk-wasteland-hud-config .range-value {
+  display: inline-block;
+  width: 50px;
+  text-align: right;
+  margin-left: 0.5rem;
+  font-weight: 600;
+  color: var(--color-text-dark-highlight);
+}
+
+.rnk-wasteland-hud-config .notes {
+  font-size: 0.85rem;
+  color: var(--color-text-dark-secondary);
+  font-style: italic;
+  margin-top: 0.25rem;
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+/* Actor Info */
+.rnk-wasteland-hud-config .actor-info {
+  background: rgba(122, 90, 46, 0.2);
+  border-left: 3px solid var(--color-border-highlight);
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.rnk-wasteland-hud-config .actor-info h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-dark-highlight);
+}
+
+/* Variable Grid */
+.rnk-wasteland-hud-config .variable-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.rnk-wasteland-hud-config .insert-variable {
+  background: var(--color-bg-option);
+  border: 1px solid var(--color-border-dark);
+  border-radius: 4px;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.85rem;
+}
+
+.rnk-wasteland-hud-config .insert-variable:hover {
+  background: var(--color-bg-option-hover);
+  border-color: var(--color-border-highlight);
+  transform: translateY(-2px);
+}
+
+.rnk-wasteland-hud-config .insert-variable code {
+  color: var(--toxic-green);
+  font-weight: 600;
+  text-shadow: 0 0 4px var(--toxic-green-glow);
+}
+
+/* Progress Bars Section */
+.rnk-wasteland-hud-config .progress-bars-section {
+  background: rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+
+.rnk-wasteland-hud-config .progress-bars-section h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-dark-primary);
+}
+
+.rnk-wasteland-hud-config .progress-bars-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.rnk-wasteland-hud-config .progress-bar-item {
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 0.5rem;
+  align-items: center;
+  background: var(--color-bg-input);
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.rnk-wasteland-hud-config .progress-bar-item input[type="number"] {
+  width: 80px;
+}
+
+.rnk-wasteland-hud-config .add-progress-bar,
+.rnk-wasteland-hud-config .remove-progress-bar {
+  padding: 0.5rem 1rem;
+  background: var(--color-button-primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.rnk-wasteland-hud-config .add-progress-bar:hover {
+  background: var(--color-button-primary-hover);
+}
+
+.rnk-wasteland-hud-config .remove-progress-bar {
+  background: #dc3545;
+  padding: 0.4rem 0.8rem;
+}
+
+.rnk-wasteland-hud-config .remove-progress-bar:hover {
+  background: #c82333;
+}
+
+/* Preview */
+.rnk-wasteland-hud-config .Display-preview-container {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  border: 1px solid var(--color-border-dark);
+}
+
+.rnk-wasteland-hud-config .Display-preview-container h4 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-dark-primary);
+}
+
+.rnk-wasteland-hud-config .Display-preview {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80px;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      rgba(255,255,255,0.03),
+      rgba(255,255,255,0.03) 10px,
+      rgba(0,0,0,0.03) 10px,
+      rgba(0,0,0,0.03) 20px
+    );
+  border-radius: 4px;
+}
+
+.rnk-wasteland-hud-config .preview-Display {
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+.rnk-wasteland-hud-config .preview-progress-bar {
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* Template List */
+.rnk-wasteland-hud-config .template-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.rnk-wasteland-hud-config .template-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-bg-option);
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-border-dark);
+  transition: all 0.2s;
+}
+
+.rnk-wasteland-hud-config .template-item:hover {
+  background: var(--color-bg-option-hover);
+  border-color: var(--color-border-highlight);
+}
+
+.rnk-wasteland-hud-config .template-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.rnk-wasteland-hud-config .template-info strong {
+  color: var(--color-text-dark-primary);
+  font-size: 0.95rem;
+}
+
+.rnk-wasteland-hud-config .template-author {
+  font-size: 0.8rem;
+  color: var(--color-text-dark-secondary);
+}
+
+.rnk-wasteland-hud-config .template-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.rnk-wasteland-hud-config .template-actions button,
+.rnk-wasteland-hud-config .save-template,
+.rnk-wasteland-hud-config .quick-enable-all,
+.rnk-wasteland-hud-config .quick-disable-all {
+  padding: 0.4rem 0.8rem;
+  background: var(--color-button-primary);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.rnk-wasteland-hud-config .template-actions button:hover,
+.rnk-wasteland-hud-config .save-template:hover,
+.rnk-wasteland-hud-config .quick-enable-all:hover,
+.rnk-wasteland-hud-config .quick-disable-all:hover {
+  background: var(--color-button-primary-hover);
+  transform: translateY(-1px);
+}
+
+.rnk-wasteland-hud-config .delete-template {
+  background: #dc3545 !important;
+}
+
+.rnk-wasteland-hud-config .delete-template:hover {
+  background: #c82333 !important;
+}
+
+.rnk-wasteland-hud-config .load-template {
+  background: #28a745 !important;
+}
+
+.rnk-wasteland-hud-config .load-template:hover {
+  background: #218838 !important;
+}
+
+/* Bulk Actions */
+.rnk-wasteland-hud-config .bulk-actions {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.rnk-wasteland-hud-config .bulk-actions h3 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.rnk-wasteland-hud-config .bulk-actions button {
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Footer - Wasteland Action Bar */
+.rnk-wasteland-hud-config .sheet-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-top: 3px solid #7a5a2e;
+  margin-top: 1.5rem;
+  background: linear-gradient(180deg, #1a1410 0%, #0d0b08 100%);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.rnk-wasteland-hud-config .sheet-footer button {
+  padding: 0.75rem 1.75rem;
+  background: linear-gradient(180deg, #7a5a2e 0%, #5a4320 100%);
+  color: #ffcc00;
+  border: 2px solid #4a3820;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  box-shadow: 
+    2px 2px 6px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(212, 175, 55, 0.3);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.rnk-wasteland-hud-config .sheet-footer button:hover {
+  background: linear-gradient(180deg, #9a7a4e 0%, #7a5a2e 100%);
+  border-color: #d4af37;
+  transform: translateY(-2px);
+  box-shadow: 
+    0 4px 12px rgba(212, 175, 55, 0.4),
+    2px 2px 8px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(212, 175, 55, 0.5);
+  color: #fff;
+}
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.rnk-wasteland-hud-config .sheet-footer button.close {
+  background: #6c757d;
+}
+
+.rnk-wasteland-hud-config .sheet-footer button.close:hover {
+  background: #5a6268;
+}
+
+.rnk-wasteland-hud-config .sheet-footer button i {
+  margin-right: 0.5rem;
+}
+
+/* Token HUD Button */
+.control-icon.display-config {
+  border-radius: 3px;
+}
+
+.control-icon.display-config:hover {
+  background: rgba(255, 100, 50, 0.3);
+  box-shadow: 0 0 10px rgba(255, 100, 50, 0.5);
+}
+
+.control-icon.display-config i {
+  color: #ff6432;
+}
+
+/* Scrollbar Styling */
+.rnk-wasteland-hud-config .content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.rnk-wasteland-hud-config .content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.rnk-wasteland-hud-config .content::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+}
+
+.rnk-wasteland-hud-config .content::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Disabled States */
+.rnk-wasteland-hud-config button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.rnk-wasteland-hud-config button:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Tile Display Section */
+.rnk-wasteland-hud-config .tile-display-section {
+  background: linear-gradient(135deg, rgba(74, 56, 32, 0.3), rgba(42, 32, 21, 0.3));
+  border: 1px solid rgba(122, 90, 46, 0.4);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+}
+
+.rnk-wasteland-hud-config .tile-display-section h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: #d4af37;
+}
+
+.rnk-wasteland-hud-config .tile-display-section h4 i {
+  margin-right: 0.5rem;
+}
+
+.rnk-wasteland-hud-config .tile-options {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.rnk-wasteland-hud-config .tile-options .form-row {
+  display: flex;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.rnk-wasteland-hud-config .create-display-tile,
+.rnk-wasteland-hud-config .select-tile-on-canvas {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #7a5a2e, #4a3820);
+  color: #d4af37;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.rnk-wasteland-hud-config .create-display-tile:hover,
+.rnk-wasteland-hud-config .select-tile-on-canvas:hover {
+  background: linear-gradient(135deg, #9a7a4e, #6a5a3e);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.4);
+}
+
+.rnk-wasteland-hud-config .create-display-tile i,
+.rnk-wasteland-hud-config .select-tile-on-canvas i {
+  font-size: 1rem;
+}
+
+/* Variable Reference Section */
+.rnk-wasteland-hud-config .variable-reference {
+  margin-top: 1rem;
+  border: 2px solid #4a3820;
+  border-radius: 6px;
+  background: linear-gradient(145deg, #0d0b08 0%, #1a1410 100%);
+}
+
+.rnk-wasteland-hud-config .variable-reference details {
+  padding: 0;
+}
+
+.rnk-wasteland-hud-config .variable-reference summary {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  color: #d4af37;
+  background: linear-gradient(180deg, #2a2015 0%, #1a1410 100%);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.rnk-wasteland-hud-config .variable-reference summary:hover {
+  color: #ffcc00;
+  background: linear-gradient(180deg, #3a2a15 0%, #2a2015 100%);
+}
+
+.rnk-wasteland-hud-config .variable-reference summary i {
+  color: #7a5a2e;
+}
+
+.rnk-wasteland-hud-config .variable-list {
+  padding: 1rem;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.rnk-wasteland-hud-config .variable-category {
+  margin-bottom: 1.5rem;
+}
+
+.rnk-wasteland-hud-config .variable-category:last-child {
+  margin-bottom: 0;
+}
+
+.rnk-wasteland-hud-config .variable-category h4 {
+  color: #d4af37;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0 0 0.5rem 0;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid #4a3820;
+}
+
+.rnk-wasteland-hud-config .variable-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.5rem;
+}
+
+.rnk-wasteland-hud-config .variable-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: rgba(74, 56, 32, 0.2);
+  border: 1px solid #3a2a15;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.rnk-wasteland-hud-config .variable-item:hover {
+  background: rgba(122, 90, 46, 0.3);
+  border-color: #7a5a2e;
+  transform: translateX(2px);
+}
+
+.rnk-wasteland-hud-config .variable-item code {
+  color: #d4af37;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.rnk-wasteland-hud-config .variable-item span {
+  color: #b8986a;
+  font-size: 0.85rem;
+  flex: 1;
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="256" height="256" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+  <!-- Main module icon -->
+  <defs>
+    <linearGradient id="grad_module-icon.svg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b3a3a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3f0000;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle with gradient -->
+  <circle cx="128" cy="128" r="124" 
+          fill="url(#grad_module-icon.svg)" 
+          stroke="#0c0000" 
+          stroke-width="4"/>
+  
+  <!-- Symbol -->
+  <text x="50%" y="50%" 
+        font-family="Arial, sans-serif" 
+        font-size="128" 
+        font-weight="bold"
+        fill="white" 
+        text-anchor="middle" 
+        dominant-baseline="central">
+    ᚱ
+  </text>
+</svg>

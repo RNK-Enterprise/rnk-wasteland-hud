@@ -1,0 +1,155 @@
+<div class="display-tile-app">
+  {{#if error}}
+    <div class="error-message">{{error}}</div>
+  {{else}}
+    <div class="Display-header">
+      <h2>{{actor.name}}</h2>
+      <div class="actor-portrait">
+        <img src="{{actor.img}}" alt="{{actor.name}}" />
+      </div>
+    </div>
+
+    <div class="Display-tabs">
+      <button data-tab="inventory" class="tab-button active">
+        <i class="fas fa-backpack"></i> Inventory
+      </button>
+      <button data-tab="spells" class="tab-button">
+        <i class="fas fa-wand-magic-sparkles"></i> Spells
+      </button>
+      <button data-tab="attacks" class="tab-button">
+        <i class="fas fa-sword"></i> Attacks
+      </button>
+      <button data-tab="skills" class="tab-button">
+        <i class="fas fa-person-hiking"></i> Skills
+      </button>
+    </div>
+
+    <div class="Display-content">
+      <!-- Inventory Tab -->
+      <div class="Display-tab-content" data-tab="inventory">
+        {{#if items}}
+          <div class="inventory-list">
+            {{#each items}}
+              <div class="inventory-item" data-item-id="{{this.id}}">
+                <div class="item-img">
+                  <img src="{{this.img}}" alt="{{this.name}}" />
+                </div>
+                <div class="item-details">
+                  <h4>{{this.name}}</h4>
+                  <p class="item-type">{{this.type}}</p>
+                  {{#if this.quantity}}
+                    <p class="item-quantity">Qty: {{this.quantity}}</p>
+                  {{/if}}
+                  {{#if this.equipped}}
+                    <span class="item-badge equipped">Equipped</span>
+                  {{/if}}
+                </div>
+                <button class="equip-item" title="Toggle Equip">
+                  <i class="fas fa-check-circle"></i>
+                </button>
+              </div>
+            {{/each}}
+          </div>
+        {{else}}
+          <p class="no-items">No inventory items</p>
+        {{/if}}
+      </div>
+
+      <!-- Spells Tab -->
+      <div class="Display-tab-content" data-tab="spells">
+        {{#if spells}}
+          <div class="spells-list">
+            {{#each spells}}
+              <div class="spell-item" data-spell-id="{{this.id}}">
+                <div class="spell-header">
+                  <h4>{{this.name}}</h4>
+                  {{#if this.level}}
+                    <span class="spell-level">Lvl {{this.level}}</span>
+                  {{/if}}
+                </div>
+                <div class="spell-meta">
+                  {{#if this.school}}
+                    <span class="spell-school">{{this.school}}</span>
+                  {{/if}}
+                  {{#if this.castingTime}}
+                    <span class="spell-action">{{this.castingTime}}</span>
+                  {{/if}}
+                </div>
+                {{#if this.description}}
+                  <div class="spell-description">{{this.description}}</div>
+                {{/if}}
+                <div class="spell-actions">
+                  <button class="cast-spell">Cast</button>
+                  <button class="prepare-spell">
+                    {{#if this.prepared}}Unprepare{{else}}Prepare{{/if}}
+                  </button>
+                </div>
+              </div>
+            {{/each}}
+          </div>
+        {{else}}
+          <p class="no-items">No spells available</p>
+        {{/if}}
+      </div>
+
+      <!-- Attacks Tab -->
+      <div class="Display-tab-content" data-tab="attacks">
+        {{#if attacks}}
+          <div class="attacks-list">
+            {{#each attacks}}
+              <div class="attack-item" data-attack-id="{{this.id}}">
+                <div class="attack-header">
+                  <h4>{{this.name}}</h4>
+                  {{#if this.type}}
+                    <span class="attack-type">{{this.type}}</span>
+                  {{/if}}
+                </div>
+                <div class="attack-stats">
+                  {{#if this.toHit}}
+                    <span class="attack-bonus">+{{this.toHit}}</span>
+                  {{/if}}
+                  {{#if this.damage}}
+                    <span class="attack-damage">{{this.damage}}</span>
+                  {{/if}}
+                  {{#if this.range}}
+                    <span class="attack-range">{{this.range}}</span>
+                  {{/if}}
+                </div>
+                {{#if this.description}}
+                  <div class="attack-description">{{this.description}}</div>
+                {{/if}}
+                <button class="use-attack">Roll Attack</button>
+              </div>
+            {{/each}}
+          </div>
+        {{else}}
+          <p class="no-items">No attacks available</p>
+        {{/if}}
+      </div>
+
+      <!-- Skills Tab -->
+      <div class="Display-tab-content" data-tab="skills">
+        {{#if skills}}
+          <div class="skills-list">
+            {{#each skills}}
+              <div class="skill-item" data-skill-key="{{this.key}}">
+                <div class="skill-header">
+                  <h4>{{this.name}}</h4>
+                  <span class="skill-bonus">{{#if this.bonus}}+{{/if}}{{this.bonus}}</span>
+                </div>
+                {{#if this.proficient}}
+                  <span class="skill-proficiency">
+                    <i class="fas fa-star"></i> Proficient
+                  </span>
+                {{/if}}
+                <button class="use-skill">Roll Check</button>
+              </div>
+            {{/each}}
+          </div>
+        {{else}}
+          <p class="no-items">No skills available</p>
+        {{/if}}
+      </div>
+    </div>
+  {{/if}}
+</div>

@@ -1,0 +1,138 @@
+{
+    "id":  "rnk-wasteland-hud",
+    "title":  "RNK™ Wasteland HUD",
+    "version":  "2.0.1",
+    "compatibility":  {
+                          "minimum":  "11",
+                          "verified":  "13"
+                      },
+    "relationships":  {
+                          "systems":  [
+                                          {
+                                              "id":  "dnd5e",
+                                              "type":  "system",
+                                              "compatibility":  {
+
+                                                                }
+                                          },
+                                          {
+                                              "id":  "pf2e",
+                                              "type":  "system",
+                                              "compatibility":  {
+
+                                                                }
+                                          },
+                                          {
+                                              "id":  "swade",
+                                              "type":  "system",
+                                              "compatibility":  {
+
+                                                                }
+                                          },
+                                          {
+                                              "id":  "wfrp4e",
+                                              "type":  "system",
+                                              "compatibility":  {
+
+                                                                }
+                                          },
+                                          {
+                                              "id":  "cof",
+                                              "type":  "system",
+                                              "compatibility":  {
+
+                                                                }
+                                          }
+                                      ]
+                      },
+    "description":  "Post-apocalyptic token HUD system with movable overlays, dynamic data displays, progress bars, and salvaged bunker aesthetics. Wasteland survival interface for Foundry VTT.",
+    "authors":  [
+                    {
+                        "name":  "RNK",
+                        "discord":  "RNK",
+                        "flags":  {
+
+                                  }
+                    }
+                ],
+    "esmodules":  [
+                      "scripts/settings.js",
+                      "scripts/templates.js",
+                      "scripts/system-integration.js",
+                      "scripts/effects/visual-presets.js",
+                      "scripts/effects/animations.js",
+                      "scripts/effects/resource-displays.js",
+                      "scripts/effects/conditions.js",
+                      "scripts/visual-effects.js",
+                      "scripts/core/token-display-content.js",
+                      "scripts/core/token-display-display.js",
+                      "scripts/core/token-display-advanced.js",
+                      "scripts/core/token-display-renderer.js",
+                      "scripts/core/token-display-interactivity.js",
+                      "scripts/core/token-display-class.js",
+                      "scripts/core/hooks-manager.js",
+                      "scripts/core/chat-commands.js",
+                      "scripts/rnk-wasteland-hud.js",
+                      "scripts/config/config-form-data.js",
+                      "scripts/config/config-event-handlers.js",
+                      "scripts/config/config-tile-manager.js",
+                      "scripts/config-app.js",
+                      "scripts/multiplayer/player-cursor.js",
+                      "scripts/multiplayer/ping-effect.js",
+                      "scripts/multiplayer/typing-indicator.js",
+                      "scripts/multiplayer/shared-note.js",
+                      "scripts/multiplayer/multiplayer-manager.js",
+                      "scripts/multiplayer.js",
+                      "scripts/actions/action-button.js",
+                      "scripts/actions/default-actions.js",
+                      "scripts/actions/action-bar.js",
+                      "scripts/actions/action-manager.js",
+                      "scripts/quick-actions.js",
+                      "scripts/radial-menu.js",
+                      "scripts/particle-system.js",
+                      "scripts/combat-stats.js",
+                      "scripts/click-to-roll.js",
+                      "scripts/speech-bubbles.js",
+                      "scripts/turn-timer.js",
+                      "scripts/preset-builder.js",
+                      "scripts/shape-borders.js",
+                      "scripts/background-textures.js",
+                      "scripts/editable-fields.js",
+                      "scripts/token-links.js",
+                      "scripts/concentration.js",
+                      "scripts/inventory-display.js",
+                      "scripts/cinematic.js",
+                      "scripts/party-frames.js",
+                      "scripts/plugin-system.js",
+                      "scripts/tutorial.js",
+                      "scripts/keyboard-shortcuts.js",
+                      "scripts/quick-config-panel.js",
+                      "scripts/scene-stats-widget.js",
+                      "scripts/rnk-localize-helper.js"
+                  ],
+    "styles":  [
+                   "styles/rnk-wasteland-hud.css",
+                   "styles/presets.css",
+                   "styles/animations.css",
+                   "styles/quick-config-panel.css",
+                   "styles/scene-stats-widget.css"
+               ],
+    "languages":  [
+                      {
+                          "lang":  "en",
+                          "name":  "English",
+                          "path":  "lang/en.json"
+                      }
+                  ],
+    "url":  "https://github.com/RNK-Enterprise/rnk-wasteland-hud",
+    "manifest":  "https://raw.githubusercontent.com/RNK-Enterprise/rnk-wasteland-hud/main/module.json",
+    "download":  "https://github.com/RNK-Enterprise/rnk-wasteland-hud/releases/latest/download/module.zip",
+    "bugs":  "https://github.com/RNK-Enterprise/rnk-wasteland-hud/issues",
+    "readme":  "https://github.com/RNK-Enterprise/rnk-wasteland-hud/blob/main/README.md",
+    "media":  [
+                  {
+                      "type":  "icon",
+                      "url":  "assets/icon.svg"
+                  }
+              ]
+}

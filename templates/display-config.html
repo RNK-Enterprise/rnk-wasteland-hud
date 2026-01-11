@@ -1,0 +1,559 @@
+<form class="rnk-wasteland-hud-config">
+  <nav class="tabs" data-group="display-config">
+    <a class="item" data-tab="basic"><i class="fas fa-info-circle"></i> Basic</a>
+    <a class="item" data-tab="visual"><i class="fas fa-palette"></i> Visual</a>
+    <a class="item" data-tab="data"><i class="fas fa-database"></i> Data & Bars</a>
+    <a class="item" data-tab="visibility"><i class="fas fa-eye"></i> Visibility</a>
+    <a class="item" data-tab="advanced"><i class="fas fa-cog"></i> Advanced</a>
+    <a class="item" data-tab="templates"><i class="fas fa-file-alt"></i> Templates</a>
+  </nav>
+
+  <div class="content">
+    <!-- Basic Tab -->
+    <div class="tab" data-tab="basic">
+      <div class="form-group">
+        <label class="checkbox">
+          <input type="checkbox" name="enabled" {{checked enabled}}>
+          Enable Display Display
+        </label>
+      </div>
+
+      {{#if actorName}}
+      <div class="form-group actor-info">
+        <h3>Actor: {{actorName}}</h3>
+        <p class="notes">Available variables:</p>
+        <div class="variable-grid">
+          {{#each availableVariables}}
+          <button type="button" class="insert-variable" data-variable="{{key}}" title="{{desc}}">
+            <code>{{key}}</code>
+          </button>
+          {{/each}}
+        </div>
+      </div>
+      {{/if}}
+
+      <div class="form-group">
+        <label>Text Content</label>
+        <textarea name="content" rows="6" placeholder="@name&#10;HP: @hp | AC: @ac">{{content}}</textarea>
+        <p class="notes">Use variables like @name, @hp, @ac, etc. Supports multi-line text.</p>
+      </div>
+
+      <div class="variable-reference">
+        <details>
+          <summary><i class="fas fa-book"></i> Available Variables Reference</summary>
+          <div class="variable-list">
+            <div class="variable-category">
+              <h4>Basic Info</h4>
+              <div class="variable-items">
+                <div class="variable-item">
+                  <code>@name</code>
+                  <span>Character name</span>
+                </div>
+                <div class="variable-item">
+                  <code>@level</code>
+                  <span>Character level</span>
+                </div>
+                <div class="variable-item">
+                  <code>@class</code>
+                  <span>Character class</span>
+                </div>
+                <div class="variable-item">
+                  <code>@race</code>
+                  <span>Character race/ancestry</span>
+                </div>
+                <div class="variable-item">
+                  <code>@background</code>
+                  <span>Character background</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="variable-category">
+              <h4>Combat Stats</h4>
+              <div class="variable-items">
+                <div class="variable-item">
+                  <code>@hp</code>
+                  <span>HP (current/max format)</span>
+                </div>
+                <div class="variable-item">
+                  <code>@hp.value</code>
+                  <span>Current HP only</span>
+                </div>
+                <div class="variable-item">
+                  <code>@hp.max</code>
+                  <span>Max HP only</span>
+                </div>
+                <div class="variable-item">
+                  <code>@hp.percentage</code>
+                  <span>HP percentage</span>
+                </div>
+                <div class="variable-item">
+                  <code>@hp.temp</code>
+                  <span>Temporary HP</span>
+                </div>
+                <div class="variable-item">
+                  <code>@ac</code>
+                  <span>Armor Class</span>
+                </div>
+                <div class="variable-item">
+                  <code>@speed</code>
+                  <span>Movement speed</span>
+                </div>
+                <div class="variable-item">
+                  <code>@initiative</code>
+                  <span>Initiative bonus</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="variable-category">
+              <h4>Ability Scores</h4>
+              <div class="variable-items">
+                <div class="variable-item">
+                  <code>@str</code>
+                  <span>Strength modifier</span>
+                </div>
+                <div class="variable-item">
+                  <code>@dex</code>
+                  <span>Dexterity modifier</span>
+                </div>
+                <div class="variable-item">
+                  <code>@con</code>
+                  <span>Constitution modifier</span>
+                </div>
+                <div class="variable-item">
+                  <code>@int</code>
+                  <span>Intelligence modifier</span>
+                </div>
+                <div class="variable-item">
+                  <code>@wis</code>
+                  <span>Wisdom modifier</span>
+                </div>
+                <div class="variable-item">
+                  <code>@cha</code>
+                  <span>Charisma modifier</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="variable-category">
+              <h4>Resources</h4>
+              <div class="variable-items">
+                <div class="variable-item">
+                  <code>@spellslots</code>
+                  <span>Available spell slots</span>
+                </div>
+                <div class="variable-item">
+                  <code>@spelldc</code>
+                  <span>Spell save DC</span>
+                </div>
+                <div class="variable-item">
+                  <code>@spellattack</code>
+                  <span>Spell attack bonus</span>
+                </div>
+                <div class="variable-item">
+                  <code>@ki</code>
+                  <span>Ki/Focus points</span>
+                </div>
+                <div class="variable-item">
+                  <code>@inspiration</code>
+                  <span>Inspiration status</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="variable-category">
+              <h4>Combat Info</h4>
+              <div class="variable-items">
+                <div class="variable-item">
+                  <code>@proficiency</code>
+                  <span>Proficiency bonus</span>
+                </div>
+                <div class="variable-item">
+                  <code>@passiveperception</code>
+                  <span>Passive Perception</span>
+                </div>
+                <div class="variable-item">
+                  <code>@passiveinvestigation</code>
+                  <span>Passive Investigation</span>
+                </div>
+                <div class="variable-item">
+                  <code>@passiveinsight</code>
+                  <span>Passive Insight</span>
+                </div>
+                <div class="variable-item">
+                  <code>@concentration</code>
+                  <span>Active concentration spell</span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="variable-category">
+              <h4>Conditions</h4>
+              <div class="variable-items">
+                <div class="variable-item">
+                  <code>@conditions</code>
+                  <span>Active conditions</span>
+                </div>
+                <div class="variable-item">
+                  <code>@exhaustion</code>
+                  <span>Exhaustion level</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="notes" style="margin-top: 1rem;">
+            <i class="fas fa-lightbulb"></i> 
+            Tip: Click any variable to copy it, or use multiple variables on one line like: <code>@name | HP: @hp | AC: @ac</code>
+          </p>
+        </details>
+      </div>
+
+      <div class="form-group">
+        <label>Position</label>
+        <select name="position">
+          <option value="top" {{selected position 'top'}}>Above Token</option>
+          <option value="bottom" {{selected position 'bottom'}}>Below Token</option>
+          <option value="left" {{selected position 'left'}}>Left of Token</option>
+          <option value="right" {{selected position 'right'}}>Right of Token</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="checkbox">
+          <input type="checkbox" name="clickToOpen" {{checked clickToOpen}}>
+          Click to Open Character Sheet
+        </label>
+      </div>
+    </div>
+
+    <!-- Visual Tab -->
+    <div class="tab" data-tab="visual">
+      <div class="form-group">
+        <label>Style Preset</label>
+        <select name="preset">
+          {{#each presets}}
+          <option value="@key">{{name}}</option>
+          {{/each}}
+        </select>
+        <p class="notes">Presets apply default colors and styling. You can customize below.</p>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Font Size</label>
+          <input type="number" name="fontSize" value="{{fontSize}}" min="8" max="48">
+        </div>
+        
+        <div class="form-group">
+          <label>Max Width</label>
+          <input type="number" name="width" value="{{width}}" min="50" max="500">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Text Color</label>
+          <input type="color" name="textColor" value="{{textColor}}">
+        </div>
+        
+        <div class="form-group">
+          <label>Background Color</label>
+          <input type="color" name="backgroundColor" value="{{backgroundColor}}">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Border Color</label>
+          <input type="color" name="borderColor" value="{{borderColor}}">
+        </div>
+        
+        <div class="form-group">
+          <label>Border Width</label>
+          <input type="number" name="borderWidth" value="{{borderWidth}}" min="0" max="10">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Border Radius</label>
+          <input type="number" name="borderRadius" value="{{borderRadius}}" min="0" max="50">
+        </div>
+        
+        <div class="form-group">
+          <label>Opacity</label>
+          <input type="range" name="opacity" value="{{opacity}}" min="0" max="1" step="0.05">
+          <span class="range-value">{{opacity}}</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="checkbox">
+          <input type="checkbox" name="shadow" {{checked shadow}}>
+          Enable Drop Shadow
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label class="checkbox">
+          <input type="checkbox" name="gradient" {{checked gradient}}>
+          Use Gradient Background (if available in preset)
+        </label>
+      </div>
+
+      <div class="Display-preview-container">
+        <h4>Live Preview</h4>
+        <div class="Display-preview"></div>
+      </div>
+    </div>
+
+    <!-- Data & Bars Tab -->
+    <div class="tab" data-tab="data">
+      <div class="form-group">
+        <label class="checkbox">
+          <input type="checkbox" name="showProgressBars" {{checked showProgressBars}}>
+          Show Progress Bars
+        </label>
+      </div>
+
+      <div class="progress-bars-section">
+        <h4>Progress Bars</h4>
+        <div class="progress-bars-list">
+          {{#each progressBars}}
+          <div class="progress-bar-item" data-index="{{@index}}">
+            <select name="progressBars.{{@index}}.type">
+              <option value="hp" {{selected type 'hp'}}>HP</option>
+              <option value="resources" {{selected type 'resources'}}>Resources</option>
+              <option value="custom" {{selected type 'custom'}}>Custom</option>
+            </select>
+            <input type="color" name="progressBars.{{@index}}.color" value="{{color}}">
+            <input type="number" name="progressBars.{{@index}}.height" value="{{height}}" min="4" max="20" placeholder="Height">
+            <button type="button" class="remove-progress-bar" data-index="{{@index}}">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          {{/each}}
+        </div>
+        <button type="button" class="add-progress-bar">
+          <i class="fas fa-plus"></i> Add Progress Bar
+        </button>
+      </div>
+
+      <div class="form-group">
+        <label class="checkbox">
+          <input type="checkbox" name="showConditions" {{checked showConditions}}>
+          Show Status Effects/Conditions
+        </label>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Condition Position</label>
+          <select name="conditionPosition">
+            <option value="top" {{selected conditionPosition 'top'}}>Top</option>
+            <option value="bottom" {{selected conditionPosition 'bottom'}}>Bottom</option>
+            <option value="inline" {{selected conditionPosition 'inline'}}>Inline</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Max Conditions</label>
+          <input type="number" name="maxConditions" value="{{maxConditions}}" min="1" max="10">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="checkbox">
+          <input type="checkbox" name="showIcons" {{checked showIcons}}>
+          Show Stat Icons
+        </label>
+      </div>
+    </div>
+
+    <!-- Visibility Tab -->
+    <div class="tab" data-tab="visibility">
+      <div class="form-group">
+        <label>Visibility Mode</label>
+        <select name="visibility">
+          <option value="always" {{selected visibility 'always'}}>Always Visible</option>
+          <option value="hover" {{selected visibility 'hover'}}>On Hover</option>
+          <option value="selected" {{selected visibility 'selected'}}>When Selected</option>
+          <option value="combat" {{selected visibility 'combat'}}>During Combat Only</option>
+          <option value="gm-only" {{selected visibility 'gm-only'}}>GM Only</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label class="checkbox">
+          <input type="checkbox" name="showToPlayers" {{checked showToPlayers}}>
+          Visible to Players
+        </label>
+        <p class="notes">When unchecked, only GM can see this Display</p>
+      </div>
+
+      <div class="form-group">
+        <label>Player Content (Optional)</label>
+        <textarea name="playerContent" rows="3" placeholder="@name">{{playerContent}}</textarea>
+        <p class="notes">Different content to show to players. Leave empty to use main content.</p>
+      </div>
+
+      <div class="form-group">
+        <label class="checkbox">
+          <input type="checkbox" name="hideWhenHidden" {{checked hideWhenHidden}}>
+          Hide When Token is Hidden
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label>Distance Fade (Grid Units)</label>
+        <input type="number" name="fadeDistance" value="{{fadeDistance}}" min="0" max="50" step="5">
+        <p class="notes">Fade out when this far from controlled token. 0 = disabled.</p>
+      </div>
+    </div>
+
+    <!-- Advanced Tab -->
+    <div class="tab" data-tab="advanced">
+      <div class="form-group">
+        <label class="checkbox">
+          <input type="checkbox" name="allowDrag" {{checked allowDrag}}>
+          Allow Dragging (GM Only)
+        </label>
+        <p class="notes">Drag the Display to reposition it manually</p>
+      </div>
+
+      <div class="form-group">
+        <label class="checkbox">
+          <input type="checkbox" name="showOnHover" {{checked showOnHover}}>
+          Show Detailed Tooltip on Hover
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label>Custom CSS (Advanced)</label>
+        <textarea name="customCSS" rows="4" placeholder=".my-custom-class { color: red; }" class="monospace">{{customCSS}}</textarea>
+        <p class="notes">Add custom CSS styling. Use with caution!</p>
+      </div>
+
+      <div class="form-group">
+        <h4>Multiple Displays per Token</h4>
+        <p class="notes">Coming soon: Add multiple Displays at different positions</p>
+        <button type="button" class="add-Display" disabled>
+          <i class="fas fa-plus"></i> Add Additional Display
+        </button>
+      </div>
+
+      <div class="form-group">
+        <h4>Conditional Display Rules</h4>
+        <p class="notes">Coming soon: Show/hide based on conditions</p>
+        <button type="button" class="add-condition" disabled>
+          <i class="fas fa-plus"></i> Add Display Condition
+        </button>
+      </div>
+
+      <div class="form-group tile-display-section">
+        <h4><i class="fas fa-image"></i> Display on Scene Tile</h4>
+        <p class="notes">Link this Display's data to a tile on the scene for a persistent HUD display.</p>
+        
+        <div class="form-group">
+          <label class="checkbox">
+            <input type="checkbox" name="linkToTile" {{checked linkToTile}}>
+            Enable Tile Display
+          </label>
+        </div>
+
+        <div class="tile-options" {{#unless linkToTile}}style="display: none;"{{/unless}}>
+          <div class="form-group">
+            <label>Select Tile</label>
+            <select name="linkedTileId">
+              <option value="">-- Select a Tile --</option>
+              {{#each sceneTiles}}
+              <option value="{{this.id}}" {{selected ../linkedTileId this.id}}>{{this.name}}</option>
+              {{/each}}
+            </select>
+            <p class="notes">Choose an existing tile from the current scene</p>
+          </div>
+
+          <div class="form-row">
+            <button type="button" class="create-display-tile">
+              <i class="fas fa-plus-square"></i> Create New Display Tile
+            </button>
+            <button type="button" class="select-tile-on-canvas">
+              <i class="fas fa-crosshairs"></i> Pick Tile from Canvas
+            </button>
+            <button type="button" class="delete-display-tile" style="background-color: #8b0000;">
+              <i class="fas fa-trash"></i> Delete Linked Tile
+            </button>
+          </div>
+
+          <div class="form-group">
+            <label class="checkbox">
+              <input type="checkbox" name="tileAutoUpdate" {{checked tileAutoUpdate}}>
+              Auto-update Tile on Token Changes
+            </label>
+          </div>
+
+          <div class="form-group">
+            <label class="checkbox">
+              <input type="checkbox" name="tileShowFullStats" {{checked tileShowFullStats}}>
+              Show Full Character Stats on Tile
+            </label>
+            <p class="notes">Displays HP bars, conditions, and quick actions on the tile</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Templates Tab -->
+    <div class="tab" data-tab="templates">
+      <div class="template-actions">
+        <button type="button" class="save-template">
+          <i class="fas fa-save"></i> Save Current as Template
+        </button>
+      </div>
+
+      <h3>Load Template</h3>
+      <div class="template-list">
+        {{#each templates}}
+        <div class="template-item">
+          <div class="template-info">
+            <strong>{{name}}</strong>
+            {{#if author}}
+            <span class="template-author">by {{author}}</span>
+            {{/if}}
+          </div>
+          <div class="template-actions">
+            <button type="button" class="load-template" data-template="{{@key}}">
+              <i class="fas fa-download"></i> Load
+            </button>
+            {{#if author}}
+            <button type="button" class="delete-template" data-template="{{@key}}">
+              <i class="fas fa-trash"></i>
+            </button>
+            {{/if}}
+          </div>
+        </div>
+        {{/each}}
+      </div>
+
+      <div class="bulk-actions">
+        <h3>Bulk Actions</h3>
+        <p class="notes">Apply to all selected tokens:</p>
+        <button type="button" class="quick-enable-all">
+          <i class="fas fa-check"></i> Enable All
+        </button>
+        <button type="button" class="quick-disable-all">
+          <i class="fas fa-times"></i> Disable All
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer class="sheet-footer">
+    <button type="button" class="place-display-waypoint" style="background: #1a7a0d; border-color: #39ff14;"><i class="fas fa-map-marker-alt"></i> Place Display</button>
+    <button type="submit"><i class="fas fa-save"></i> Save Configuration</button>
+    <button type="button" class="delete-display" style="background: #8b0000; border-color: #600000;"><i class="fas fa-trash"></i> Delete Display</button>
+    <button type="button" class="close"><i class="fas fa-times"></i> Cancel</button>
+  </footer>
+</form>
+

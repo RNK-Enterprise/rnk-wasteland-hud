@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Turn timer button -->
+  <defs>
+    <linearGradient id="grad_timer-icon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b6f3a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3f2300;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle with gradient -->
+  <circle cx="32" cy="32" r="28" 
+          fill="url(#grad_timer-icon)" 
+          stroke="#0c0000" 
+          stroke-width="4"/>
+  
+  <!-- Timer clock face -->
+  <circle cx="32" cy="32" r="14" fill="none" stroke="white" stroke-width="2"/>
+  <!-- Clock hands -->
+  <line x1="32" y1="32" x2="32" y2="22" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <line x1="32" y1="32" x2="38" y2="32" stroke="white" stroke-width="2" stroke-linecap="round"/>
+  <!-- Top button -->
+  <rect x="30" y="14" width="4" height="4" fill="white" rx="1"/>
+</svg>
