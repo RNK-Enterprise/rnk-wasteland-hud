@@ -1,0 +1,9 @@
+﻿rnk backups/
+rnk testing/
+rnk zips/
+node_modules/
+*.key
+*.pem
+*.env
+vscode-userdata/
+All Agents.instructions.md

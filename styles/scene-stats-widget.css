@@ -1,0 +1,6 @@
+.rnk-scene-widgets-container .rnk-scene-widget { box-shadow: 0 6px 18px rgba(0,0,0,0.6); }
+.rnk-scene-widget-title { font-size: 13px; }
+.rnk-scene-widget .rnk-scene-widget-row { margin: 2px 0; }
+.rnk-scene-widget .rnk-scene-widget-value { color: #fff; }
+.rnk-scene-widgets-container { pointer-events: none; }
+.rnk-scene-widgets-container .rnk-scene-widget { pointer-events: auto; }

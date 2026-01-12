@@ -1,0 +1,358 @@
+/**
+ * RNK Wasteland HUD - Animation Styles
+ */
+
+/* Fade Animations */
+@keyframes Display-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes Display-fade-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+}
+
+.Display-fade-in {
+  animation: Display-fade-in 0.3s ease-out;
+}
+
+.Display-fade-out {
+  animation: Display-fade-out 0.3s ease-in;
+}
+
+/* Pulse Animation */
+@keyframes Display-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.Display-pulse {
+  animation: Display-pulse 1s ease-in-out infinite;
+}
+
+/* Combat Highlight */
+@keyframes Display-combat-highlight {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(255, 200, 0, 0.6);
+    border-color: rgba(255, 200, 0, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 200, 0, 1);
+    border-color: rgba(255, 200, 0, 1);
+  }
+}
+
+.Display-combat-active {
+  animation: Display-combat-highlight 1.5s ease-in-out infinite;
+}
+
+/* Damage Flash */
+@keyframes Display-damage-flash {
+  0% {
+    background-color: rgba(255, 0, 0, 0);
+  }
+  50% {
+    background-color: rgba(255, 0, 0, 0.6);
+  }
+  100% {
+    background-color: rgba(255, 0, 0, 0);
+  }
+}
+
+.Display-damage-flash {
+  animation: Display-damage-flash 0.5s ease-out;
+}
+
+/* Healing Flash */
+@keyframes Display-heal-flash {
+  0% {
+    background-color: rgba(0, 255, 0, 0);
+  }
+  50% {
+    background-color: rgba(0, 255, 0, 0.6);
+  }
+  100% {
+    background-color: rgba(0, 255, 0, 0);
+  }
+}
+
+.Display-heal-flash {
+  animation: Display-heal-flash 0.5s ease-out;
+}
+
+/* Floating Number Animation */
+@keyframes floating-number {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+}
+
+.floating-number {
+  animation: floating-number 1.5s ease-out forwards;
+}
+
+/* Shake Animation (for critical hits) */
+@keyframes Display-shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+.Display-shake {
+  animation: Display-shake 0.5s ease-in-out;
+}
+
+/* Glow Pulse */
+@keyframes Display-glow-pulse {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px currentColor);
+  }
+  50% {
+    filter: drop-shadow(0 0 15px currentColor);
+  }
+}
+
+.Display-glow {
+  animation: Display-glow-pulse 2s ease-in-out infinite;
+}
+
+/* Slide In Animations */
+@keyframes Display-slide-in-top {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes Display-slide-in-bottom {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes Display-slide-in-left {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes Display-slide-in-right {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.Display-slide-in-top {
+  animation: Display-slide-in-top 0.3s ease-out;
+}
+
+.Display-slide-in-bottom {
+  animation: Display-slide-in-bottom 0.3s ease-out;
+}
+
+.Display-slide-in-left {
+  animation: Display-slide-in-left 0.3s ease-out;
+}
+
+.Display-slide-in-right {
+  animation: Display-slide-in-right 0.3s ease-out;
+}
+
+/* Progress Bar Fill Animation */
+@keyframes progress-bar-fill {
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  to {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+.progress-bar-animated {
+  animation: progress-bar-fill 0.5s ease-out;
+}
+
+/* Condition Icon Pop */
+@keyframes condition-icon-pop {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.condition-icon-new {
+  animation: condition-icon-pop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Hover Effects */
+.Display-interactive:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease-out;
+  cursor: pointer;
+}
+
+.Display-interactive:active {
+  transform: scale(0.98);
+}
+
+/* Dragging State */
+.Display-dragging {
+  opacity: 0.7;
+  cursor: grabbing;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.5));
+}
+
+/* Distance Fade */
+.Display-distance-fade {
+  transition: opacity 0.3s ease-out;
+}
+
+/* Loading Spinner */
+@keyframes Display-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.Display-loading {
+  animation: Display-spinner 1s linear infinite;
+}
+
+/* Typewriter Effect (for text reveal) */
+@keyframes Display-typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.Display-typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: Display-typewriter 1s steps(40) forwards;
+}
+
+/* Particle Effect */
+@keyframes Display-particle {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx, 0), var(--ty, -30px)) scale(0);
+    opacity: 0;
+  }
+}
+
+.Display-particle {
+  animation: Display-particle 1s ease-out forwards;
+}
+
+/* Breathing Animation */
+@keyframes Display-breathe {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+.Display-breathe {
+  animation: Display-breathe 3s ease-in-out infinite;
+}
+
+/* Critical Hit Flash */
+@keyframes Display-critical {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 20px 10px rgba(255, 215, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 215, 0, 0);
+  }
+}
+
+.Display-critical-hit {
+  animation: Display-critical 0.6s ease-out, Display-shake 0.5s ease-in-out;
+}
+
+/* Utility Classes */
+.Display-no-animation {
+  animation: none !important;
+  transition: none !important;
+}
+
+.Display-slow-animation {
+  animation-duration: 2s !important;
+}
+
+.Display-fast-animation {
+  animation-duration: 0.15s !important;
+}
+

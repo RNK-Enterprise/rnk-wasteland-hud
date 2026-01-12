@@ -1,0 +1,69 @@
+{
+  "rnk-wasteland-hud": {
+    "ModuleName": "RNK Wasteland HUD",
+    "Settings": {
+      "EnableDisplays": "Enable Token Displays",
+      "EnableDisplaysHint": "Globally enable or disable the token Displays system",
+      "AutoUpdate": "Auto-Update Displays",
+      "AutoUpdateHint": "Automatically update Displays when actor data changes",
+      "DefaultPreset": "Default Preset",
+      "DefaultPresetHint": "Default visual preset for new token Displays",
+      "ShowToPlayers": "Show to Players",
+      "ShowToPlayersHint": "Players can see Displays on tokens they don't own",
+      "AllowPlayerEdit": "Allow Player Editing",
+      "AllowPlayerEditHint": "Players can edit Displays on tokens they own",
+      "ParticleCount": "Particle Count",
+      "ParticleCountHint": "Number of particles in particle effects (0-100)",
+      "EnableCinematic": "Enable Cinematic Effects",
+      "EnableCinematicHint": "Enable camera shake, flash, and other cinematic effects",
+      "CinematicOnCrit": "Cinematic on Critical Hits",
+      "CinematicOnCritHint": "Trigger cinematic effects on critical hits"
+    },
+    "Config": {
+      "Title": "Configure Token Display",
+      "Enabled": "Enable Display",
+      "Preset": "Visual Preset",
+      "CustomTemplate": "Custom Template",
+      "Position": "Position",
+      "OffsetX": "Offset X",
+      "OffsetY": "Offset Y",
+      "Scale": "Scale",
+      "FontSize": "Font Size",
+      "Padding": "Padding",
+      "BackgroundColor": "Background Color",
+      "TextColor": "Text Color",
+      "BorderColor": "Border Color",
+      "ShowProgressBar": "Show Progress Bar",
+      "ProgressBarAttribute": "Progress Bar Attribute",
+      "ShowCombatStats": "Show Combat Stats",
+      "EnableParticles": "Enable Particle Effects",
+      "ParticleType": "Particle Effect Type"
+    },
+    "Presets": {
+      "classic": "Classic",
+      "fantasy-Displays": "Fantasy Displays",
+      "modern": "Modern",
+      "minimal": "Minimal",
+      "scifi": "Sci-Fi",
+      "parchment": "Parchment",
+      "neon": "Neon Glow",
+      "fire": "Fire Elemental",
+      "ice": "Ice Elemental",
+      "lightning": "Lightning Elemental",
+      "nature": "Nature Elemental",
+      "shadow": "Shadow Elemental",
+      "holy": "Holy Radiance",
+      "arcane": "Arcane Power",
+      "poison": "Toxic Poison",
+      "blood": "Blood Magic"
+    },
+    "Commands": {
+      "EnableSuccess": "Displays enabled for selected tokens",
+      "DisableSuccess": "Displays disabled for selected tokens",
+      "RefreshSuccess": "Displays refreshed for selected tokens",
+      "NoTokens": "No tokens selected",
+      "NotGM": "Only the GM can use this command"
+    }
+  }
+}
+

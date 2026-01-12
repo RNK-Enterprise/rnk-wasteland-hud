@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Particle effects button -->
+  <defs>
+    <linearGradient id="grad_particle-icon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b3a8b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3f003f;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle with gradient -->
+  <circle cx="32" cy="32" r="28" 
+          fill="url(#grad_particle-icon)" 
+          stroke="#0c000c" 
+          stroke-width="4"/>
+  
+  <!-- Star/sparkle shape -->
+  <polygon points="32,18 34,28 44,28 36,34 38,44 32,38 26,44 28,34 20,28 30,28" fill="white"/>
+</svg>

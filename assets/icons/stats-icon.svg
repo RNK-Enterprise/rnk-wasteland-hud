@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <!-- Combat stats button -->
+  <defs>
+    <linearGradient id="grad_stats-icon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3a8b5f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#003f13;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background circle with gradient -->
+  <circle cx="32" cy="32" r="28" 
+          fill="url(#grad_stats-icon)" 
+          stroke="#000c00" 
+          stroke-width="4"/>
+  
+  <!-- Bar chart -->
+  <rect x="20" y="36" width="6" height="10" fill="white"/>
+  <rect x="29" y="28" width="6" height="18" fill="white"/>
+  <rect x="38" y="22" width="6" height="24" fill="white"/>
+</svg>
